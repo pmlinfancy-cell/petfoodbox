@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SuccessRouteImport } from './routes/success'
+import { Route as RecordsRouteImport } from './routes/records'
 import { Route as PayRouteImport } from './routes/pay'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SuccessRoute = SuccessRouteImport.update({
   id: '/success',
   path: '/success',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecordsRoute = RecordsRouteImport.update({
+  id: '/records',
+  path: '/records',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PayRoute = PayRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/pay': typeof PayRoute
+  '/records': typeof RecordsRoute
   '/success': typeof SuccessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/pay': typeof PayRoute
+  '/records': typeof RecordsRoute
   '/success': typeof SuccessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/pay': typeof PayRoute
+  '/records': typeof RecordsRoute
   '/success': typeof SuccessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pay' | '/success'
+  fullPaths: '/' | '/pay' | '/records' | '/success'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pay' | '/success'
-  id: '__root__' | '/' | '/pay' | '/success'
+  to: '/' | '/pay' | '/records' | '/success'
+  id: '__root__' | '/' | '/pay' | '/records' | '/success'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PayRoute: typeof PayRoute
+  RecordsRoute: typeof RecordsRoute
   SuccessRoute: typeof SuccessRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/success'
       fullPath: '/success'
       preLoaderRoute: typeof SuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/records': {
+      id: '/records'
+      path: '/records'
+      fullPath: '/records'
+      preLoaderRoute: typeof RecordsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pay': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PayRoute: PayRoute,
+  RecordsRoute: RecordsRoute,
   SuccessRoute: SuccessRoute,
 }
 export const routeTree = rootRouteImport

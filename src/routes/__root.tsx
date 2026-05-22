@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Pet Food Box" },
+      { name: "description", content: "猫食盒子是一款户外宠物粮食投递机，保护生态安全，从我做起。" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Pet Food Box" },
+      { property: "og:description", content: "猫食盒子是一款户外宠物粮食投递机，保护生态安全，从我做起。" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Pet Food Box" },
+      { name: "twitter:description", content: "猫食盒子是一款户外宠物粮食投递机，保护生态安全，从我做起。" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b6d005a9-da65-4f9b-8a0e-8e0b1d057029/id-preview-8baba283--66193026-607f-4d8d-88e7-f265da0ab0e2.lovable.app-1779426778547.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b6d005a9-da65-4f9b-8a0e-8e0b1d057029/id-preview-8baba283--66193026-607f-4d8d-88e7-f265da0ab0e2.lovable.app-1779426778547.png" },
     ],
     links: [
       {

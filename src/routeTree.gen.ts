@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SuccessRouteImport } from './routes/success'
 import { Route as RecordsRouteImport } from './routes/records'
 import { Route as PayRouteImport } from './routes/pay'
+import { Route as CatsRouteImport } from './routes/cats'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RecordsOrderIdRouteImport } from './routes/records.$orderId'
 
@@ -30,6 +31,11 @@ const PayRoute = PayRouteImport.update({
   path: '/pay',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CatsRoute = CatsRouteImport.update({
+  id: '/cats',
+  path: '/cats',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,6 +49,7 @@ const RecordsOrderIdRoute = RecordsOrderIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cats': typeof CatsRoute
   '/pay': typeof PayRoute
   '/records': typeof RecordsRouteWithChildren
   '/success': typeof SuccessRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cats': typeof CatsRoute
   '/pay': typeof PayRoute
   '/records': typeof RecordsRouteWithChildren
   '/success': typeof SuccessRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cats': typeof CatsRoute
   '/pay': typeof PayRoute
   '/records': typeof RecordsRouteWithChildren
   '/success': typeof SuccessRoute
@@ -65,14 +74,28 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pay' | '/records' | '/success' | '/records/$orderId'
+  fullPaths:
+    | '/'
+    | '/cats'
+    | '/pay'
+    | '/records'
+    | '/success'
+    | '/records/$orderId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pay' | '/records' | '/success' | '/records/$orderId'
-  id: '__root__' | '/' | '/pay' | '/records' | '/success' | '/records/$orderId'
+  to: '/' | '/cats' | '/pay' | '/records' | '/success' | '/records/$orderId'
+  id:
+    | '__root__'
+    | '/'
+    | '/cats'
+    | '/pay'
+    | '/records'
+    | '/success'
+    | '/records/$orderId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CatsRoute: typeof CatsRoute
   PayRoute: typeof PayRoute
   RecordsRoute: typeof RecordsRouteWithChildren
   SuccessRoute: typeof SuccessRoute
@@ -99,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/pay'
       fullPath: '/pay'
       preLoaderRoute: typeof PayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cats': {
+      id: '/cats'
+      path: '/cats'
+      fullPath: '/cats'
+      preLoaderRoute: typeof CatsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -131,6 +161,7 @@ const RecordsRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CatsRoute: CatsRoute,
   PayRoute: PayRoute,
   RecordsRoute: RecordsRouteWithChildren,
   SuccessRoute: SuccessRoute,

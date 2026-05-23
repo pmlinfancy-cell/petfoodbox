@@ -72,7 +72,8 @@ npm run dev
 
 注意：本地运行时后端 API 默认使用 Mock 数据（见 src/mock）。如需连接真实后端，请修改 src/config/api.js 中的 BASE_URL。
 
-🗺️ 项目路线图
+
+## 🗺️ 项目路线图
 阶段	目标	状态
 Phase 1	HTML Demo + Mock 后端 + 静态设备状态	✅ 已完成
 Phase 2	支付模拟 + 订单状态机 + 视频回传占位	🔄 进行中

@@ -5,10 +5,12 @@
 [![项目状态](https://img.shields.io/badge/状态-开发中-blue)](https://github.com/your-repo)
 [![PRD版本](https://img.shields.io/badge/PRD-v1.0-green)](./猫食盒子_PRD.docx)
 [![演示链接](https://img.shields.io/badge/演示-在线试用-orange)](https://petfoodbox.lovable.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
 ## 🎯 为什么需要猫食盒子？—— 痛点分析
+
 在校园和社区的流浪猫救助中，传统投喂方式存在两大核心痛点：
 
 | 痛点 | 具体表现 |
@@ -16,13 +18,13 @@
 | **生存环境恶劣** | 区域性野猫食物来源不稳定，依赖零散投喂，长期处于饥饿或营养不良状态 |
 | **健康与生命威胁** | 缺乏科学喂养，病死率高；野外进食易引发中毒；无实时监控导致伤病无法及时救治 |
 
-**猫食盒子** 是一套面向校园与社区的 **户外智能投食系统**，
-由 **硬件终端 + 小程序前端 + 后台管理系统** 构成。  
+**猫食盒子** 是一套面向校园与社区的 **户外智能投食系统**，由 **硬件终端 + 小程序前端 + 后台管理系统** 构成。  
 用户通过小程序选择投喂设备、支付少量费用（如1元/20mg猫粮），即可远程触发户外投食机出粮，并通过 **猫脸识别** 记录是哪只猫吃到了猫粮，形成可追踪、可复盘、有情感连接的投喂闭环。
 
 项目源于深大校园记忆，依托深大黑客松发起，希望用技术改善流浪猫的生存现状，同时维护校园生态平衡。
 
 ---
+
 ## ✨ 新增功能亮点 —— 我们如何解决
 
 相比普通投食器或人工投喂，本项目新增以下核心能力：
@@ -36,14 +38,16 @@
 - 基于开源模型（如 sysucats/cat-face）实现猫脸识别
 - 每只猫拥有**独立电子档案**（名字、年龄预估、品种、投喂历史）
 - 支持用户给猫**命名**，增强情感连接与留存
-  
+
 ### 3. 低门槛运营闭环
 - 运营后台可统一管理：设备、订单、猫粮批次、识别库、视频
 - 支持人工审核新猫入库 + 高置信自动入库
 
 ### 4. 从深大出发，可复制到更多场景
 - 当前 Demo 覆盖深大校园地图，后续可扩展多校区、社区、救助点
-  
+
+---
+
 ## 🚀 运行方式
 
 ### 方式一：在线体验 Demo（无需安装）
@@ -55,31 +59,41 @@
 
 ### 方式二：本地运行前端（开发/自测）
 
-克隆仓库
+1. 克隆仓库
+
    ```bash
    git clone https://github.com/your-username/petfoodbox.git
    cd petfoodbox/frontend
+   ```
 
-安装依赖（假设使用 Vite / React）
+2. 安装依赖（假设使用 Vite / React）
 
-npm install
+   ```bash
+   npm install
+   ```
 
-启动开发服务器
+3. 启动开发服务器
 
-npm run dev
+   ```bash
+   npm run dev
+   ```
 
-访问 http://localhost:5173
+4. 访问 `http://localhost:5173`
 
-注意：本地运行时后端 API 默认使用 Mock 数据（见 src/mock）。如需连接真实后端，请修改 src/config/api.js 中的 BASE_URL。   
+> **注意**：本地运行时后端 API 默认使用 Mock 数据（见 `src/mock`）。如需连接真实后端，请修改 `src/config/api.js` 中的 `BASE_URL`。
 
+---
 
+## 🗺️ 项目路线图
 
-# 🗺️ 项目路线图
-阶段	目标	状态
-Phase 1	HTML Demo + Mock 后端 + 静态设备状态	✅ 已完成
-Phase 2	支付模拟 + 订单状态机 + 视频回传占位	🔄 进行中
-Phase 3	猫脸识别入库 + 命名 + 猫档案页	📅 计划中
-Phase 4	后台管理 + 猫粮管理 + 设备管理	📅 计划中
+| 阶段 | 目标 | 状态 |
+|------|------|------|
+| Phase 1 | HTML Demo + Mock 后端 + 静态设备状态 | ✅ 已完成 |
+| Phase 2 | 支付模拟 + 订单状态机 + 视频回传占位 | 🔄 进行中 |
+| Phase 3 | 猫脸识别入库 + 命名 + 猫档案页 | 📅 计划中 |
+| Phase 4 | 后台管理 + 猫粮管理 + 设备管理 | 📅 计划中 |
+
+---
 
 ## ✨ 核心功能
 
@@ -132,14 +146,16 @@ Phase 4	后台管理 + 猫粮管理 + 设备管理	📅 计划中
 ---
 
 ## 📂 项目结构
-petfoodbox/
-├── frontend/ # 小程序 / HTML Demo
-├── backend/ # 服务端（订单、用户、设备接口）
-├── hardware/ # 硬件控制代码与文档
-├── ai/ # 猫脸识别训练与推理脚本
-├── admin/ # 后台管理系统
-└── docs/ # PRD、设计稿、状态机说明
 
+```
+petfoodbox/
+├── frontend/   # 小程序 / HTML Demo
+├── backend/    # 服务端（订单、用户、设备接口）
+├── hardware/   # 硬件控制代码与文档
+├── ai/         # 猫脸识别训练与推理脚本
+├── admin/      # 后台管理系统
+└── docs/       # PRD、设计稿、状态机说明
+```
 
 ---
 
@@ -153,8 +169,7 @@ petfoodbox/
 4. 推送到分支 (`git push origin feature/amazing-feature`)
 5. 打开一个 Pull Request
 
-详细贡献指南请见 [CONTRIBUTING.md]
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+详细贡献指南请见 [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ---
 
@@ -166,9 +181,4 @@ petfoodbox/
 
 **科技向善，爱在深大。**  
 感谢每一位关心流浪动物的你 🐾
-
-
-
-
-
----
+```

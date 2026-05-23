@@ -100,13 +100,8 @@ petfoodbox/
 4. 推送到分支 (`git push origin feature/amazing-feature`)
 5. 打开一个 Pull Request
 
-详细贡献指南请见 [CONTRIBUTING.md](./CONTRIBUTING.md)（待补充）
-
----
-
-## 📄 许可证
-
-本项目采用 **MIT 许可证**，详情见 [LICENSE](./LICENSE) 文件。
+详细贡献指南请见 [CONTRIBUTING.md]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
